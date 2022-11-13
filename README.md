@@ -1,5 +1,7 @@
 <strong><h1>지하철 실시간 도착정보 모듈<h1></strong>
-<h3>api 사이트 :  https://data.seoul.go.kr/dataList/OA-12764/F/1/datasetView.do </h3>
+<h3>* api 사이트 :  https://data.seoul.go.kr/dataList/OA-12764/F/1/datasetView.do </h3>
+<h3>* 필수 npm -> xml-js, request</h3>
+
 
 <h3>[ 기능 ]</h3>
 <h4> -> 실시간으로 서울 지하철 도착정보 api 에서 xml형식으로 데이터를 받아와 xml-js 패키지로 json형태로 변환 후 화면에 출력함.</h4>
