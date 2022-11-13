@@ -1,0 +1,15 @@
+{
+  "name": "mmm-subway",
+  "version": "1.0.0",
+  "description": "",
+  "main": "MMM-Subway.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JJUNNAK with dong",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.2",
+    "xml-js": "^1.6.11"
+  }
+}
