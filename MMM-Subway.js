@@ -1,4 +1,5 @@
 
+
 Module.register("MMM-Subway", {
   // Default module config.
   defaults: {
@@ -10,6 +11,11 @@ Module.register("MMM-Subway", {
   getStyles: function() {
     return ["Subway.css"]
   },
+
+  getHeader: function() {
+    return "원당역 지하철 도착정보";
+},
+
 
   start: function() {
       Log.info("Starting module: " + this.name);
@@ -23,53 +29,40 @@ Module.register("MMM-Subway", {
     var wrapper = document.createElement("div");
     var subway_table = document.createElement("table");
 
-    // 제목
-    var name_tag = document.createElement("h4");
-    name_tag.className = "tittle";
-    name_tag.innerHTML =  "원당역 도착정보";
-    wrapper.appendChild(name_tag);
-
-    // 방면
-    var tr1 = document.createElement("tr");
+    // 대화 방면
+    var tr_up = document.createElement("tr");
     var th_up = document.createElement("th");
-    th_up.innerHTML = "상행선";
-    th_up.className="cen";
-    var th_down = document.createElement("th");
-    th_down.innerHTML = "하행선";
-    th_down.className="cen";
-    tr1.appendChild(th_up);
-    tr1.appendChild(th_down);
-    subway_table.appendChild(tr1);
-
-
-    // n 정류장 전
-    var tr_time = document.createElement("tr");
-    tr_time.className="cen";
+    th_up.innerHTML = " 대화행 ";
+    th_up.className="tittle";
+    tr_up.appendChild(th_up);
+    //대화행 시간
+    var tr_uptime = document.createElement("tr");
     var up_time = document.createElement("td");
-    up_time.innerHTML = this.Subway_data[0][2] + "  ";
-    tr_time.appendChild(up_time);
+    up_time.className = "cen";
+    up_time.innerHTML = this.Subway_data[0][2];
+    tr_uptime.appendChild(up_time);
+    
+    // 오금 방면
+    var tr_down = document.createElement("tr");
+    var th_down = document.createElement("th");
+    th_down.innerHTML = " 오금행 ";
+    th_down.className="tittle";
+    tr_down.appendChild(th_down);
+
+    // 오금행 시간
+    var tr_downtime = document.createElement("tr");
     var down_time = document.createElement("td");
-    down_time.innerHTML = "  " + this.Subway_data[1][2];
-    tr_time.appendChild(down_time);
-    subway_table.appendChild(tr_time);
+    down_time.innerHTML = this.Subway_data[1][2];
+    down_time.className = "cen";
+    tr_downtime.appendChild(down_time);
+    
+    // table 에 추가
+    subway_table.appendChild(tr_up);
+    subway_table.appendChild(tr_uptime);
+    subway_table.appendChild(tr_down);
+    subway_table.appendChild(tr_downtime);
 
-    var tr_parse = document.createElement("tr");
-    tr_parse.className="cen";
-    tr_parse.innerHTML = "[ 현재위치 ]";
-    subway_table.appendChild(tr_parse);
-
-    //현재 지하철 위치
-    var tr_location = document.createElement("tr");
-    tr_location.className="cen";
-    var up_location = document.createElement("td");
-    up_location.innerHTML = this.Subway_data[0][1];
-    tr_location.appendChild(up_location);
-    var down_location = document.createElement("td");
-    down_location.innerHTML = this.Subway_data[1][1];
-    tr_location.appendChild(down_location);
-    subway_table.appendChild(tr_location);
-
-
+    // div 에 추가
     wrapper.appendChild(subway_table);
     return wrapper;
   },
