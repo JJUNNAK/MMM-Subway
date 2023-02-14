@@ -3,7 +3,7 @@
 Module.register("MMM-Subway", {
   // Default module config.
   defaults: {
-    serviceKey : "4770714d726462733130375a4d595071",
+    serviceKey : "API 키 입력",
     location : "%EC%9B%90%EB%8B%B9",
     updateInterval: 10000,
   },
